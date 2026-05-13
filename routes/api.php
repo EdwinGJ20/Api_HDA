@@ -22,10 +22,11 @@ use App\Http\Controllers\API\ComunidadController;
 | API Routes
 |--------------------------------------------------------------------------
 */
-
+/*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
 Route::post('HDA1/login', [App\Http\Controllers\API\UsuarioController::class, 'login']);
 Route::apiResource('HDA1/usuario', UsuarioController::class);
 Route::apiResource('HDA1/usuario_test', Usuario_TestController::class);
