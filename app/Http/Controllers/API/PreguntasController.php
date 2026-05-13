@@ -13,6 +13,12 @@ class PreguntasController extends Controller
     {
         return response()->json(Preguntas::all(), 200);
     }
+    // En PreguntasController.php
+public function porTest($id_test)
+{
+    $preguntas = Preguntas::where('ID_test', $id_test)->get();
+    return response()->json($preguntas);
+}
 
     // CREAR
     public function store(Request $request)
@@ -54,5 +60,18 @@ class PreguntasController extends Controller
         return response()->json([
             'message' => 'Pregunta eliminada'
         ]);
+        
     }
+    // Método para obtener preguntas de un cuestionario específico
+public function obtenerPorTest($id_test)
+{
+    // Buscamos las preguntas donde ID_test coincida con el que mandamos
+    $preguntas = Preguntas::where('ID_test', $id_test)->get();
+
+    if ($preguntas->isEmpty()) {
+        return response()->json(['message' => 'No hay preguntas para este test'], 404);
+    }
+
+    return response()->json($preguntas, 200);
+}
 }
