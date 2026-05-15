@@ -51,3 +51,6 @@ Route::get('HDA1/chat/{user1}/{user2}', [ComunidadController::class, 'getChatPri
 Route::post('HDA1/chat', [ComunidadController::class, 'enviarMensaje']);
 // Ruta para obtener el perfil completo del usuario
 Route::get('HDA1/perfil_completo/{idUsuario}', [ComunidadController::class, 'getPerfilCompleto']);
+Route::get('/test-v1', function () {
+    return response()->json(['status' => 'La API responde correctamente']);
+});
